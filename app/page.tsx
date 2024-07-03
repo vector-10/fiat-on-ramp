@@ -7,8 +7,8 @@ import Link from "next/link"
 
 export default function Home() {
   return (
-    <main className="landing-page min-h-screen mukta">
-      <header className="fixed w-full h-[4rem] flex justify-between items-center px-[4rem]">
+    <main className="landing-page min-h-screen mukta bg-black">
+      <header className=" w-full h-[5rem] flex justify-between items-center px-[4rem]">
         <div className="navigate flex space-x-16">
          <Link href="/"><div className="logo flex justify-center items-center cursor-pointer mukta"><Image className="frysk-logo w-20 h-14" src={frsyk} alt="frysk logo"/> <p className="font-bold text-xl">FRYSK</p></div></Link>                   
         </div>
@@ -41,7 +41,7 @@ export default function Home() {
       {/* middle section */}
       <div className="flex flex-col bg-white items-center h-[42rem] text-black font-bold ">
         <div className="flex flex-col items-center pt-[4rem]">
-            <p className="text-blue-600 text-xl">MAKING CRYPTO ONBOARDING SEAMLESS</p>
+            <p className="text-blue-600 text-2xl">MAKING CRYPTO ONBOARDING SEAMLESS</p>
             <h1 className="text-5xl font-bold text-black">Fully Integrated For Ramp Services</h1>
         </div>
 
@@ -58,19 +58,37 @@ export default function Home() {
           </div>       
       </div>  
       </div>
-      <div className="features flex">
-        <div>
-          <h1></h1>
-        </div>
-        {/* division */}
-        <div>
-
-        </div>
-
-      </div>
-      {/* footer section */}
-      <footer>
-      </footer>  
+      <div className="h-screen flex items-center justify-between text-white mx-[8rem]">
+          <div className="flex flex-col justify-between h-[20rem]">
+            <p>FEATURES</p>
+            <h1 className="text-5xl">A Trustworthy friendly <br/> Crypto Toolkit for Businesses <br/> For Effortless Fiat to <br/> Crypto Transactions</h1>
+            <p>Get used to low fees and great exchange rates on international money transfers. <br/> Expand your business worldwide</p>
+          </div>
+          {/* division */}
+          <div className="text-white grid grid-cols-2 gap-4 rounded-lg drop-shadow-2xl">
+            <div className="p-[4rem]">
+              <Image src={frax} className="w-8 h-8" alt="image"/>
+              <p></p>
+              <p></p>
+            </div>
+            <div className="p-[4rem]">
+              <Image src={frax} className="w-8 h-8" alt="image"/>
+              <p></p>
+              <p></p>
+            </div>
+            <div className="p-[4rem]">
+              <Image src={frax} className="w-8 h-8" alt="image"/>
+              <p></p>
+              <p></p>
+            </div>
+            <div className="p-[4rem]">
+              <Image src={frax} className="w-8 h-8" alt="image"/>
+              <p></p>
+              <p></p>
+            </div> 
+          </div>
+       </div>
+      
     </main>
   );
 }
