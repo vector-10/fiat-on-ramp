@@ -7,8 +7,8 @@ import Link from "next/link"
 
 export default function Home() {
   return (
-    <main className="landing-page min-h-screen ">
-      <header className="fixed w-full h-[4rem] /flex justify-between items-center px-[4rem]">
+    <main className="landing-page min-h-screen mukta">
+      <header className="fixed w-full h-[4rem] flex justify-between items-center px-[4rem]">
         <div className="navigate flex space-x-16">
          <Link href="/"><div className="logo flex justify-center items-center cursor-pointer mukta"><Image className="frysk-logo w-20 h-14" src={frsyk} alt="frysk logo"/> <p className="font-bold text-xl">FRYSK</p></div></Link>                   
         </div>
@@ -39,24 +39,34 @@ export default function Home() {
         </div>
       </section>     
       {/* middle section */}
-      <div className="flex flex-col bg-white justify-center items-center h-[32rem] text-black font-bold ">
-        <div className="flex flex-col items-center">
-            <p className="text-blue-600">MAKING CRYPTO ONBOARDING SEAMLESS</p>
-            <h1 className="text-3xl font-bold text-black">Fully Integrated For Powerful Ramp Services</h1>
+      <div className="flex flex-col bg-white items-center h-[42rem] text-black font-bold ">
+        <div className="flex flex-col items-center pt-[4rem]">
+            <p className="text-blue-600 text-xl">MAKING CRYPTO ONBOARDING SEAMLESS</p>
+            <h1 className="text-5xl font-bold text-black">Fully Integrated For Ramp Services</h1>
         </div>
 
-       <div className="flex space-x-10 justify-center items-center">
-          <div className="on-ramp flex items-center flex-col"> 
-            <Image className="" alt="" src={frax}/>
-            <h1>Fiat to crypto on-ramp</h1>
-            <p>Onboard users and without the hasssle and issues, purchase crypto with fiat</p>
+       <div className="flex space-x-8 justify-center items-center pt-[4rem]">
+          <div className="on-ramp flex items-center flex-col bg-gray bg-white shadow-lg p-[4rem] rounded-xl"> 
+            <Image className="w-40" alt="" src={frax}/>
+            <h1 className="text-3xl">Fiat to crypto on-ramp</h1>
+            <p className="text-sm">Onboard users and without the hasssle and issues, <br /> purchase crypto with fiat readily for transactions</p>
           </div>
-          <div className="off-ramp flex items-center flex-col">
-          <Image className="" alt="" src={frax2}/>
-            <h1>Crypto to Fiat off-ramp</h1>
-            <p>Quickly go back to local/foreign fiat currencies in a simple way in a clean transaction</p>
+          <div className="off-ramp flex items-center flex-col bg-white shadow-lg p-[4rem] rounded-xl">
+          <Image className="w-40" alt="" src={frax2}/>
+            <h1 className="text-3xl">Crypto to Fiat off-ramp</h1>
+            <p className="text-sm">Quickly go back to local/foreign fiat currencies <br />in a simple way in a clean transaction</p>
           </div>       
       </div>  
+      </div>
+      <div className="features flex">
+        <div>
+          <h1></h1>
+        </div>
+        {/* division */}
+        <div>
+
+        </div>
+
       </div>
       {/* footer section */}
       <footer>
