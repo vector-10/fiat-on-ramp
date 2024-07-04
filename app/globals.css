@@ -9,7 +9,13 @@
 .raleway{
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 700;
+  font-style: normal;
+}
+.raleway2{
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
   font-style: normal;
 }
 
