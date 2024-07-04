@@ -14,6 +14,9 @@ import { FaEthereum } from "react-icons/fa";
 import { RiXrpFill } from "react-icons/ri";
 import { SiLitecoin } from "react-icons/si";
 import { SiCardano } from "react-icons/si";
+import { FaDiscord } from "react-icons/fa";
+import { FaTelegram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 export default function Home() {
   return (
@@ -35,7 +38,7 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <section className="flex h-screen px-[12rem] text-white pt-[10rem] overflow-y-auto raleway rounded-sm space-x-40">
+      <section className="flex h-screen px-[12rem] text-white pt-[10rem] overflow-y-auto rounded-sm space-x-40">
         <div className="">
           <h1 className="text-5xl mb-[2rem] font-bold">Buy and Sell Crypto <br /> in local FIAT Currency-<br /> <span className="text-[#4608ad]">Seamlessly</span></h1>
           <p className="text-sm">Providing millions of users globally with a seamless link between your Fiat currency  <br /> and Fraxtal tokens, exploring a host of profitable opportunities on  <br /> the blooming layer 2, through a simpler, cost-effective process..</p>
@@ -114,9 +117,31 @@ export default function Home() {
         </div>
        </div>
 
-       <footer>
-
-       </footer>      
+       <footer className='text-white mt-[4rem] bg-black h-[12rem] wiggly'>
+      <div className='border-b flex flex-col md:flex-row justify-around items-center h-[9rem] '>
+        <div className='logo-name'>
+         <h1 className=' text-4xl wiggly'>Frysk</h1>
+         <p className=' text-xs'>Increasing finance leverage on the Frax ecosystem</p>
+        </div>
+        <div className='logo-name hidden lg:block'>
+         <p className='font-bold wiggly text-xl'>Services</p>
+         <ul className='text-sm'><li>Home</li> <li>Vault</li> <li>Bridge</li> </ul>
+        </div>
+        <div className='logo-name hidden lg:block'>
+         <p className='font-bold wiggly text-xl'>Resources</p>
+         <ul className='text-sm'><li>Docs</li> <li>Sponsors</li> <li>About Frax</li> </ul>
+        </div>
+        <div className='logo-name hidden lg:block'>
+         <p className='font-bold wiggly text-xl'>Social Media</p>
+         <ul className='text-sm'>
+          <li><FaDiscord /></li>
+          <li><FaTelegram /></li>
+          <li><FaXTwitter /></li>
+         </ul>
+        </div>
+      </div>
+      <p className='text-center flex flex-col text-xs justify h-1 '>Copyright 2024 - All Rights Reserved</p>      
+    </footer>    
     </main>
   );
 }
