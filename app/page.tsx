@@ -34,8 +34,7 @@ const Home: React.FC = () =>{
             <Link href="/support"><li>Support</li></Link>           
           </ul>
           <div className="buttons flex space-x-4 text-sm">
-            <button className="bg-[#4608ad] px-5 py-2 cursor-pointer">Login</button>
-            <button className="bg-[#4608ad] px-5 py-2 cursor-pointer">Signup</button>
+            <button className="bg-[#4608ad] px-5 py-2 cursor-pointer">Connect Wallet</button>
           </div>
         </div>
       </header>
