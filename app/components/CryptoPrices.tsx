@@ -19,6 +19,7 @@ const CryptoPrices: React.FC = () => {
   useEffect(() => {
     const getPrices = async () => {
       const data = await fetchCryptoPrices();
+      console.log(data)
       if (data) {
         setPrices(data.data);
       }
