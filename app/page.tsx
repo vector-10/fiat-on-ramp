@@ -4,6 +4,7 @@ import coins from "../public/coins 1.png";
 import frax from "../public/frxETH_coin.svg"
 import frax2 from "../public/FRAX_coin.svg"
 import Link from "next/link"
+import CryptoPrices from "./components/CryptoPrices";
 import { IoIosSpeedometer } from "react-icons/io"; 
 import { PiFlowArrowFill } from "react-icons/pi"; 
 import { SiBitcoincash } from "react-icons/si";
@@ -18,7 +19,7 @@ import { FaDiscord } from "react-icons/fa";
 import { FaTelegram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
-export default function Home() {
+const Home: React.FC = () =>{
   return (
     <main className="landing-page min-h-screen mukta bg-black">
       <header className=" w-full h-[5rem] flex justify-between items-center px-[4rem]">
@@ -43,7 +44,7 @@ export default function Home() {
           <h1 className="text-5xl mb-[2rem] font-bold">Buy and Sell Crypto <br /> in local FIAT Currency-<br /> <span className="text-[#4608ad]">Seamlessly</span></h1>
           <p className="text-sm">Providing millions of users globally with a seamless link between your Fiat currency  <br /> and Fraxtal tokens, exploring a host of profitable opportunities on  <br /> the blooming layer 2, through a simpler, cost-effective process..</p>
           <div className="text-white flex space-x-4 pt-[2rem] font-bold text-sm"> 
-            <button className="bg-[#4608ad] px-6 py-3 cursor-pointer">Buy and Sell Crypto</button>
+            <Link href="/buy" className="bg-[#4608ad] px-6 py-3 cursor-pointer">Buy and Sell Crypto</Link>
             <button className="bg-white px-6 py-3 text-[#4608ad] cursor-pointer">FIAT Deposits</button>
           </div>
         </div>
@@ -71,6 +72,11 @@ export default function Home() {
           </div>       
       </div>  
       </div>
+      {/* division */}
+      <div>
+        <CryptoPrices />
+      </div>
+      {/* beginning of features */}
       <div className="h-screen flex items-center justify-between text-white mx-[8rem] raleway">
           <div className="flex flex-col justify-between h-[18rem]">
             <p>FEATURES</p>
@@ -102,7 +108,7 @@ export default function Home() {
           </div>
        </div>
 
-       <div className="tokens flex justify-center items-center flex-col bg-gray-200 py-[4rem] raleway">
+       <div className="tokens flex justify-center items-center flex-col bg-gray-200 py-[6rem] raleway">
         <p className="text-blue-700">BUYING POPULAR CRYPTOCURRENCIES</p>
         <h1 className="text-5xl py-6">Popular tokens available</h1>
         <p className="py-6">Purchase any of <span className="text-blue-700">110+ of the most popular cryptocurrencies</span> on the top blockchain networks. </p>
@@ -112,15 +118,15 @@ export default function Home() {
           <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><FaEthereum />Ethereum</p>
           <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><RiXrpFill />Xrp</p>
           <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><SiLitecoin />Litecoin</p>
-          <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><SiCardano /> Cardano</p>
-
+          <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><SiCardano />Cardano</p>
+          <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><Image src={frax} alt="frax coin" className="w-4 h-4"/>FrxETH</p>
         </div>
        </div>
 
        <footer className='text-white mt-[4rem] bg-black h-[12rem] wiggly'>
       <div className='border-b flex flex-col md:flex-row justify-around items-center h-[9rem] '>
         <div className='logo-name'>
-         <h1 className=' text-4xl wiggly'>Frysk</h1>
+         <h1 className=' text-4xl wiggly'>FRYSK</h1>
          <p className=' text-xs'>Increasing finance leverage on the Frax ecosystem</p>
         </div>
         <div className='logo-name hidden lg:block'>
@@ -145,3 +151,6 @@ export default function Home() {
     </main>
   );
 }
+
+
+export default Home;  
