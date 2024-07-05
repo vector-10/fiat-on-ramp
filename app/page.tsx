@@ -131,24 +131,24 @@ const Home: React.FC = () =>{
           {/* division */}
           <div className="text-white grid grid-cols-2 gap-4 rounded-lg drop-shadow-2xl raleway2">
             <div className="p-[4rem]">
-            <IoIosSpeedometer  className="w-10 h-10"/>
-              <h1 className="text-2xl font-bold">Lightning fast transactions</h1>
-              <p>Increase conversions with the fastest crypto fiat deliveries on the market.</p>
+            <Image className="w-10 h-10" alt="" />
+              <h1 className="text-2xl font-bold">FXS</h1>
+              <p>Buy Fxs from frysk protocol, then gain VeFXS by locking your FXS.</p>
             </div>
             <div className="p-[4rem]">
-              <PiFlowArrowFill className="w-10 h-10"/>
-              <h1 className="text-2xl font-bold">Seamless Flow</h1>
-              <p>Familiar e-commerce-like experience that converts beyond crypto natives.</p>
+            <Image className="w-10 h-10" alt="" />
+              <h1 className="text-2xl font-bold">SFrax</h1>
+              <p>Borrow sFRXETH by depositing SFRAX as collaterla</p>
             </div>
             <div className="p-[4rem]">
-              <MdVerifiedUser className="w-10 h-10"/>
-              <h1 className="text-2xl font-bold">Built-in compliance</h1>
-              <p className="font-light">We handle KYC, AML, and regulations on all transactions coming through our widget.</p>
+            <Image className="w-10 h-10" alt="" />
+              <h1 className="text-2xl font-bold">FPI</h1>
+              <p className="font-light">Redeem your FPI to Frax on the ETH mainnet.</p>
             </div>
             <div className="p-[4rem]">
-               <SiBitcoincash className="w-10 h-10" />
-              <h1 className="text-2xl font-bold">New Revenue Streams</h1>
-              <p>Unlock new sources of revenue for your business.</p>
+            <Image className="w-10 h-10" alt="" />
+              <h1 className="text-2xl font-bold">sFRXETH</h1>
+              <p>Explore the novelty of ERC 4626 vaults by swapping FRXETH to sFRXETH</p>
             </div> 
           </div>
        </div>
