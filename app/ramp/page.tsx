@@ -131,12 +131,12 @@ const OnRamp: React.FC = () => {
                                 onChange={handleChange}
                                 className="w-full p-2 border border-gray-300"
                             >
-                                <option value="Bitcoin">Bitcoin</option>
-                                <option value="Ethereum">Ethereum</option>
-                                <option value="USDT">USDT</option>
-                                <option value="BNB">BNB</option>
-                                <option value="Ripple">Ripple</option>
-                                <option value="Polygon">Polygon</option>
+                                <option value="Bitcoin">FXS</option>
+                                <option value="Ethereum">FRXETH</option>
+                                <option value="USDT">FPI</option>
+                                <option value="BNB">wFRXETH</option>
+                                <option value="Ripple">SFRXETH</option>
+                                <option value="Polygon">SFRAX</option>
                             </select>
                         </div>
                         <div>
