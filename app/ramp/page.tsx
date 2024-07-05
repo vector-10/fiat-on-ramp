@@ -1,7 +1,9 @@
 "use client"
-import React, { useState, FormEvent, ChangeEvent } from 'react';
+import React, { useState, useEffect, FormEvent, ChangeEvent } from 'react';
+import { ethers } from "ethers";
+import FraxtalRamp from "../constants/abi.json";  // Adjust the path to your ABI file
 
-//   types for state   
+// Types for state
 interface FormData {
     fiatAmount: string;
     cryptoType: string;
@@ -17,13 +19,6 @@ const OnRamp: React.FC = () => {
         paymentMethod: 'Credit Card',
     });
 
-    // Event handler for form submission
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        // Handle form submission logic
-        console.log('Form submitted:', formData);
-    };
-
     // Event handler for input changes
     const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         const { name, value } = e.target;
@@ -32,6 +27,61 @@ const OnRamp: React.FC = () => {
             [name]: value,
         }));
     };
+
+    // Function to get ethers provider
+    const getProvider = (): ethers.providers.Web3Provider => {
+        const { ethereum } = window as any;
+        if (!ethereum) {
+            throw new Error("No crypto wallet found. Please install it.");
+        }
+        return new ethers.providers.Web3Provider(ethereum);
+    };
+
+    // Function to get contract instance
+    const getContract = (): ethers.Contract => {
+        const provider = getProvider();
+        const signer = provider.getSigner();
+        const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || ""; // Ensure this is set in your environment variables
+        return new ethers.Contract(contractAddress, FraxtalRamp, signer);
+    };
+
+    // Connect wallet function
+    const connectWallet = async () => {
+        const { ethereum } = window as any;
+        if (!ethereum) {
+            alert("Please install MetaMask.");
+            return;
+        }
+
+        try {
+            const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+            console.log("Connected", accounts[0]);
+        } catch (error) {
+            console.error("Error connecting to MetaMask", error);
+        }
+    };
+
+    // Function to handle form submission
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const { fiatAmount, cryptoType, walletAddress } = formData;
+
+        try {
+            const contract = getContract();
+            const usdAmount = ethers.utils.parseUnits(fiatAmount, 18); // Convert fiat amount to Wei
+            const tx = await contract.purchaseTokens(cryptoType, usdAmount, walletAddress);
+
+            await tx.wait();
+            console.log('Transaction successful:', tx);
+        } catch (error) {
+            console.error('Transaction failed:', error);
+        }
+    };
+
+    // Connect wallet on component mount
+    useEffect(() => {
+        connectWallet();
+    }, []);
 
     return (
         <div className="max-w-2xl mx-auto p-4 bg-white shadow-md rounded-xs mukta">
@@ -59,7 +109,7 @@ const OnRamp: React.FC = () => {
                                 name="paymentMethod"
                                 value={formData.paymentMethod}
                                 onChange={handleChange}
-                                className="w-full p-2 border border-gray-300 "
+                                className="w-full p-2 border border-gray-300"
                             >
                                 <option value="Credit Card">Credit Card</option>
                                 <option value="Bank Transfer">Bank Transfer</option>
@@ -79,7 +129,7 @@ const OnRamp: React.FC = () => {
                                 name="cryptoType"
                                 value={formData.cryptoType}
                                 onChange={handleChange}
-                                className="w-full p-2 border border-gray-300 "
+                                className="w-full p-2 border border-gray-300"
                             >
                                 <option value="Bitcoin">Bitcoin</option>
                                 <option value="Ethereum">Ethereum</option>
@@ -105,7 +155,7 @@ const OnRamp: React.FC = () => {
                 </div>
 
                 {/* Summary and Submit */}
-                <div className="space-y-4 ">
+                <div className="space-y-4">
                     <div>
                         <h3 className="text-lg font-semibold mb-2">Summary</h3>
                         <p className="text-gray-700">Amount: {formData.fiatAmount} (Fiat)</p>

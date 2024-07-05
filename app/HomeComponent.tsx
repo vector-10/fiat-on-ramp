@@ -1,11 +1,48 @@
-import HomeComponent from "./HomeComponent";
+"use client";
 
-const Home: React.FC = () =>{
+import React, { useState, useEffect } from 'react';
+import Image from "next/image";
+import frsyk from "../public/frysk-1-removebg-preview.png";
+import coins from "../public/coins 1.png";
+import frax from "../public/frxETH_coin.svg";
+import frax2 from "../public/FRAX_coin.svg";
+import Link from "next/link";
+import CryptoPrices from "./components/CryptoPrices";
+import { IoIosSpeedometer } from "react-icons/io"; 
+import { PiFlowArrowFill } from "react-icons/pi"; 
+import { SiBitcoincash } from "react-icons/si";
+import { MdVerifiedUser } from "react-icons/md";
+import { SiSolana } from "react-icons/si";
+import { FaBitcoin } from "react-icons/fa6";
+import { FaEthereum } from "react-icons/fa";
+import { RiXrpFill } from "react-icons/ri";
+import { SiLitecoin } from "react-icons/si";
+import { SiCardano } from "react-icons/si";
+import { FaDiscord } from "react-icons/fa";
+import { FaTelegram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { ethers } from "ethers";
+import { getContractWithSigner } from "../app/components/contractUtils";
+
+const HomeComponent: React.FC = () => {
+
+  const [account, setAccount] = useState<string | null>(null);
+
+  const connectWallet = async () => {
+    try {
+      const accounts = await (window as any).ethereum.request({ method: 'eth_requestAccounts' });
+      setAccount(accounts[0]);
+      console.log("Wallet connected", accounts[0]);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <main className="landing-page min-h-screen mukta bg-black">
       <header className=" w-full h-[5rem] flex justify-between items-center px-[4rem]">
         <div className="navigate flex space-x-16">
-         <Link href="/"><div className="logo flex justify-center items-center cursor-pointer mukta"><Image className="frysk-logo w-20 h-14" src={frsyk} alt="frysk logo"/> <p className="font-bold text-xl text-white">FRYSK</p></div></Link>                   
+          <Link href="/"><div className="logo flex justify-center items-center cursor-pointer mukta"><Image className="frysk-logo w-20 h-14" src={frsyk} alt="frysk logo"/> <p className="font-bold text-xl text-white">FRYSK</p></div></Link>                   
         </div>
         {/* division between both */}
         <div className="navigation-buttons text-white flex space-x-16">
@@ -15,7 +52,22 @@ const Home: React.FC = () =>{
             <Link href="/support"><li>Support</li></Link>           
           </ul>
           <div className="buttons flex space-x-4 text-sm">
-            <button className="bg-[#4608ad] px-5 py-2 cursor-pointer">Connect Wallet</button>
+          {account ? (
+              <button
+                type="button"
+                className="bg-[#4608ad] px-5 py-2 cursor-pointer"
+              >
+                {account.slice(0, 6) + '...' + account.slice(-4)}
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="bg-[#4608ad] px-5 py-2 cursor-pointer"
+                onClick={connectWallet}
+              >
+                Connect Wallet
+              </button>
+            )}
           </div>
         </div>
       </header>
@@ -93,12 +145,12 @@ const Home: React.FC = () =>{
           <h1 className="text-5xl py-6">Popular tokens available</h1>
           <p className="py-6">Purchase any of <span className="text-blue-700">110+ of the most popular cryptocurrencies</span> on the top blockchain networks. </p>
           <div className="coins-supported flex justify-evenly space-x-4  mukta cursor-pointer">
-            <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><SiSolana />Solana</p>
-            <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><FaBitcoin />Bitcoin</p>
-            <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><FaEthereum />Ethereum</p>
-            <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><RiXrpFill />Xrp</p>
-            <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><SiLitecoin />Litecoin</p>
-            <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><SiCardano />Cardano</p>
+            <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><SiSolana />FXS</p>
+            <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><FaBitcoin />FRXETH</p>
+            <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><FaEthereum />FPI</p>
+            <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><RiXrpFill />wFRXETH</p>
+            <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><SiLitecoin />SFRXETH</p>
+            <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><SiCardano />SFRAX</p>
             <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><Image src={frax} alt="frax coin" className="w-4 h-4"/>FrxETH</p>
           </div>
        </div>
@@ -112,24 +164,24 @@ const Home: React.FC = () =>{
           {/* division */}
           <div className="text-white grid grid-cols-2 gap-4 rounded-lg drop-shadow-2xl raleway2">
             <div className="p-[4rem]">
-            <Image className="w-10 h-10" alt="" />
-              <h1 className="text-2xl font-bold">FXS</h1>
-              <p>Buy Fxs from frysk protocol, then gain VeFXS by locking your FXS.</p>
+            <IoIosSpeedometer  className="w-10 h-10"/>
+              <h1 className="text-2xl font-bold">Lightning fast transactions</h1>
+              <p>Increase conversions with the fastest crypto fiat deliveries on the market.</p>
             </div>
             <div className="p-[4rem]">
-            <Image className="w-10 h-10" alt="" />
-              <h1 className="text-2xl font-bold">SFrax</h1>
-              <p>Borrow sFRXETH by depositing SFRAX as collaterla</p>
+              <PiFlowArrowFill className="w-10 h-10"/>
+              <h1 className="text-2xl font-bold">Seamless Flow</h1>
+              <p>Familiar e-commerce-like experience that converts beyond crypto natives.</p>
             </div>
             <div className="p-[4rem]">
-            <Image className="w-10 h-10" alt="" />
-              <h1 className="text-2xl font-bold">FPI</h1>
-              <p className="font-light">Redeem your FPI to Frax on the ETH mainnet.</p>
+              <MdVerifiedUser className="w-10 h-10"/>
+              <h1 className="text-2xl font-bold">Built-in compliance</h1>
+              <p className="font-light">We handle KYC, AML, and regulations on all transactions coming through our widget.</p>
             </div>
             <div className="p-[4rem]">
-            <Image className="w-10 h-10" alt="" />
-              <h1 className="text-2xl font-bold">sFRXETH</h1>
-              <p>Explore the novelty of ERC 4626 vaults by swapping FRXETH to sFRXETH</p>
+               <SiBitcoincash className="w-10 h-10" />
+              <h1 className="text-2xl font-bold">New Revenue Streams</h1>
+              <p>Unlock new sources of revenue for your business.</p>
             </div> 
           </div>
        </div>
@@ -161,8 +213,6 @@ const Home: React.FC = () =>{
     </footer>    
     </main>
   );
-const HomePage: React.FC = () => {
-  return <HomeComponent />;
 }
 
-export default HomePage;  
+export default HomeComponent;
