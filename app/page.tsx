@@ -108,21 +108,52 @@ const Home: React.FC = () =>{
        </div>
 
        <div className="tokens flex justify-center items-center flex-col bg-gray-200 py-[6rem] raleway">
-        <p className="text-blue-700">BUYING POPULAR CRYPTOCURRENCIES</p>
-        <h1 className="text-5xl py-6">Popular tokens available</h1>
-        <p className="py-6">Purchase any of <span className="text-blue-700">110+ of the most popular cryptocurrencies</span> on the top blockchain networks. </p>
-        <div className="coins-supported flex justify-evenly space-x-4  mukta cursor-pointer">
-          <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><SiSolana />Solana</p>
-          <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><FaBitcoin />Bitcoin</p>
-          <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><FaEthereum />Ethereum</p>
-          <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><RiXrpFill />Xrp</p>
-          <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><SiLitecoin />Litecoin</p>
-          <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><SiCardano />Cardano</p>
-          <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><Image src={frax} alt="frax coin" className="w-4 h-4"/>FrxETH</p>
-        </div>
+          <p className="text-blue-700">BUYING POPULAR CRYPTOCURRENCIES</p>
+          <h1 className="text-5xl py-6">Popular tokens available</h1>
+          <p className="py-6">Purchase any of <span className="text-blue-700">110+ of the most popular cryptocurrencies</span> on the top blockchain networks. </p>
+          <div className="coins-supported flex justify-evenly space-x-4  mukta cursor-pointer">
+            <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><SiSolana />Solana</p>
+            <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><FaBitcoin />Bitcoin</p>
+            <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><FaEthereum />Ethereum</p>
+            <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><RiXrpFill />Xrp</p>
+            <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><SiLitecoin />Litecoin</p>
+            <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><SiCardano />Cardano</p>
+            <p className="flex items-center bg-white py-1 px-6 rounded-xl shadow-md"><Image src={frax} alt="frax coin" className="w-4 h-4"/>FrxETH</p>
+          </div>
        </div>
 
-       <footer className='text-white mt-[4rem] bg-black h-[12rem] wiggly'>
+       <div className="h-screen flex items-center justify-between text-white mx-[8rem] mukta">
+          <div className="flex flex-col justify-between h-[18rem]">
+            <p>Why Use Frsyk?</p>
+            <h1 className="text-4xl">EVADE HIGH GAS FEES INVOLVED BY USING FRAXTAL'S VERY OWN RAMP</h1>
+            <p>No need to be a Tech Expert of Crypto native when using Frysk <br/> Just click "buy"  and have tokens like FRAX FRXETH sFRXETH transferred to you instantly.</p>
+          </div>
+          {/* division */}
+          <div className="text-white grid grid-cols-2 gap-4 rounded-lg drop-shadow-2xl raleway2">
+            <div className="p-[4rem]">
+            <IoIosSpeedometer  className="w-10 h-10"/>
+              <h1 className="text-2xl font-bold">Lightning fast transactions</h1>
+              <p>Increase conversions with the fastest crypto fiat deliveries on the market.</p>
+            </div>
+            <div className="p-[4rem]">
+              <PiFlowArrowFill className="w-10 h-10"/>
+              <h1 className="text-2xl font-bold">Seamless Flow</h1>
+              <p>Familiar e-commerce-like experience that converts beyond crypto natives.</p>
+            </div>
+            <div className="p-[4rem]">
+              <MdVerifiedUser className="w-10 h-10"/>
+              <h1 className="text-2xl font-bold">Built-in compliance</h1>
+              <p className="font-light">We handle KYC, AML, and regulations on all transactions coming through our widget.</p>
+            </div>
+            <div className="p-[4rem]">
+               <SiBitcoincash className="w-10 h-10" />
+              <h1 className="text-2xl font-bold">New Revenue Streams</h1>
+              <p>Unlock new sources of revenue for your business.</p>
+            </div> 
+          </div>
+       </div>
+
+    <footer className='text-white mt-[4rem] bg-black h-[12rem] wiggly'>
       <div className='border-b flex flex-col md:flex-row justify-around items-center h-[9rem] '>
         <div className='logo-name'>
          <h1 className=' text-4xl wiggly'>FRYSK</h1>
