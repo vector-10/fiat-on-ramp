@@ -43,7 +43,7 @@ const Home: React.FC = () =>{
           <h1 className="text-5xl mb-[2rem] font-bold">Buy and Sell Crypto <br /> in local FIAT Currency-<br /> <span className="text-[#4608ad]">Seamlessly</span></h1>
           <p className="text-sm">Providing millions of users globally with a seamless link between your Fiat currency  <br /> and Fraxtal tokens, exploring a host of profitable opportunities on  <br /> the blooming layer 2, through a simpler, cost-effective process..</p>
           <div className="text-white flex space-x-4 pt-[2rem] font-bold text-sm"> 
-            <Link href="/buy" className="bg-[#4608ad] px-6 py-3 cursor-pointer">Buy and Sell Crypto</Link>
+            <Link href="/ramp" className="bg-[#4608ad] px-6 py-3 cursor-pointer">Buy and Sell Crypto</Link>
             <button className="bg-white px-6 py-3 text-[#4608ad] cursor-pointer">FIAT Deposits</button>
           </div>
         </div>
